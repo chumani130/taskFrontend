@@ -12,4 +12,7 @@ export class LandingPageComponent {
   onGetStartedClick(): void {
     this.router.navigate(['/login']);
   }
+  onLearnMoreClick(): void {
+    this.router.navigate(['/about']);
+  }
 }
