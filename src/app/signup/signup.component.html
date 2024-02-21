@@ -1,1 +1,96 @@
-<p>signup works!</p>
+<div class="min-h-screen flex items-center justify-center pt-10">
+    <div class="max-w-md w-full">
+        <div class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 mt-20">
+            <div class="text-center mb-4">
+                <h2 class="block text-lg font-bold">Create Your Account</h2>
+            </div>
+            <form [formGroup]="registerForm" class="flex flex-col">
+                <div class="flex flex-col mt-4 mb-1">
+                    <label for="username" class="text-sm font-medium mb-2">Username</label>
+                    <input formControlName="userName" id="username" class="p-2 border border-gray-300 rounded" type="text" placeholder="Username" autocomplete="username">
+                    <span *ngIf="registerForm.hasError('required', 'userName') && registerForm.controls['userName'].dirty" class="text-red-500">
+                        *Username is required! 
+                    </span>
+                </div>
+        
+                <div class="flex flex-col mt-4 mb-1">
+                    <label for="email" class="text-sm font-medium mb-2">Email</label>
+                    <input formControlName="email" id="email" class="p-2 border border-gray-300 rounded" type="text" placeholder="Email" autocomplete="email">
+                    <span *ngIf="registerForm.hasError('required', 'email') && registerForm.controls['email'].dirty" class="text-red-500">
+                        *Email is required! 
+                    </span>
+                    <span *ngIf="registerForm.hasError('email', 'email')" class="text-red-500">
+                        *Email is invalid
+                    </span>
+                </div>
+                
+                <div class="flex flex-col mt-4 mb-1">
+                    <label for="password" class="text-sm font-medium mb-2">Password</label>
+                    <input formControlName="password" id="password" class="p-2 border border-gray-300 rounded" type="password" placeholder="Password" autocomplete="new-password">
+                    <span *ngIf="registerForm.hasError('required', 'password') && registerForm.controls['password'].dirty" class="text-red-500">
+                        *Password is required
+                    </span>
+                </div>
+            
+                <div class="flex flex-col mt-4 mb-1">
+                    <label for="confirmPassword" class="text-sm font-medium mb-2">Confirm Password</label>
+                    <input formControlName="confirmPassword" id="confirmPassword" class="p-2 border border-gray-300 rounded" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                    <span *ngIf="registerForm.hasError('required', 'confirmPassword') && registerForm.controls['confirmPassword'].dirty" class="text-red-500">
+                        *Confirm Password is required! 
+                    </span>
+                    <span *ngIf="registerForm.hasError('confirmPasswordValidator', 'confirmPassword') && registerForm.controls['confirmPassword'].dirty" class="text-red-500">
+                        *Password didn't match! 
+                    </span>
+                </div>
+                
+                <div class="mb-2 mt-3">
+                    <input type="checkbox" id="subscribe" formControlName="subscribe" name="subscribe" />
+                    <label for="subscribe" class="text-gray-700 text-sm">
+                        Subscribe to our newsletter
+                    </label>
+                </div>
+                <div class="mb-0">
+                    <p class="text-gray-500">
+                        By clicking "Create Your Account," you agree to our 
+                        <a href="#">
+                            terms and conditions
+                        </a>.
+                    </p>
+                </div>
+                
+                <button 
+                    (click)="register()" 
+                    [disabled]="registerForm.invalid" 
+                    [class.disabled]="registerForm.invalid" 
+                    class="bg-indigo-500 p-2 rounded mt-2 text-white
+                    transition-all duration-300 ease-in-out
+                    transform hover:scale-105">
+                        Submit
+                </button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-gray-500">
+                    or create account with
+                </p>
+                <button 
+                    (click)="signUpWithGoogle()" 
+                    class="bg-white border border-gray-300 p-1 
+                    rounded mt-3 flex items-center justify-center 
+                    shadow-md hover:bg-blue-50 w-full text-black
+                    transition-all duration-300 ease-in-out
+                    transform hover:scale-105">
+                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Logo" class="h-8 w-8 mr-2">
+                    Sign up with Google
+                </button>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p class="text-gray-500">
+                Already have an account? 
+                <a href="../login" class="text-indigo-500 hover:underline">
+                    Log In
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
