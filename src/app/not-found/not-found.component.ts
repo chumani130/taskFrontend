@@ -10,7 +10,10 @@ export class NotFoundComponent {
   constructor(private router: Router) {}
 
   onHomeClick(): void {
-    this.router.navigate(['/landing']);
+    this.router.navigate(['/landingpage']);
+  }
+  onContactClick(): void {
+    this.router.navigate(['/contact']);
   }
 
 }
