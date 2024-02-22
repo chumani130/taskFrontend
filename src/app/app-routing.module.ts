@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/landingpage', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'about', component: AboutComponent},
+  { path: 'contact', component: ContactComponent},
   { path: 'forgot-password', title: 'Forgot Password Page', component: ForgotPasswordComponent},
   {path: '**', title: 'Error: Page Not Found', component: NotFoundComponent},
 ];
