@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'forgot-password', title: 'Forgot Password Page', component: ForgotPasswordComponent},
+  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   {path: '**', title: 'Error: Page Not Found', component: NotFoundComponent},
 ];
 @NgModule({
