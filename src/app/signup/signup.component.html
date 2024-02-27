@@ -15,7 +15,9 @@
         
                 <div class="flex flex-col mt-4 mb-1">
                     <label for="email" class="text-sm font-medium mb-2">Email</label>
-                    <input formControlName="email" id="email" class="p-2 border border-gray-300 rounded" type="text" placeholder="Email" autocomplete="email">
+                    <input formControlName="email" id="email" 
+                    class="p-2 border border-gray-300 rounded" 
+                    type="text" placeholder="Email" autocomplete="email">
                     <span *ngIf="registerForm.hasError('required', 'email') && registerForm.controls['email'].dirty" class="text-red-500">
                         *Email is required! 
                     </span>
@@ -24,17 +26,34 @@
                     </span>
                 </div>
                 
-                <div class="flex flex-col mt-4 mb-1">
+                <div class="relative mt-4 mb-4">
                     <label for="password" class="text-sm font-medium mb-2">Password</label>
-                    <input formControlName="password" id="password" class="p-2 border border-gray-300 rounded" type="password" placeholder="Password" autocomplete="new-password">
-                    <span *ngIf="registerForm.hasError('required', 'password') && registerForm.controls['password'].dirty" class="text-red-500">
+                    <div class="flex items-center rounded-md shadow-sm overflow-hidden">
+                        <input formControlName="password" id="password" 
+                        class="p-2 border-none flex-grow focus:outline-none" 
+                        type="{{ hidePassword ? 'password' : 'text'}}" 
+                        placeholder="Password" autocomplete="new-password">
+                        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" class="bg-gray-200 p-2 flex items-center">
+                            <mat-icon class="text-gray-600">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
+                    </div>
+                    <span *ngIf="registerForm.hasError('required', 'password') && registerForm.controls['password'].dirty" class="text-red-500 mt-2">
                         *Password is required
                     </span>
                 </div>
+                
             
-                <div class="flex flex-col mt-4 mb-1">
+                <div class="relative mt-4 mb-4">
                     <label for="confirmPassword" class="text-sm font-medium mb-2">Confirm Password</label>
-                    <input formControlName="confirmPassword" id="confirmPassword" class="p-2 border border-gray-300 rounded" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                    <div class="flex items-center rounded-md shadow-sm overflow-hidden">
+                        <input formControlName="confirmPassword" id="confirmPassword" 
+                            class="p-2 border-none flex-grow focus:outline-none" 
+                            type="{{ hideConfirmPassword ? 'password' : 'text'}}" 
+                            placeholder="Confirm Password" autocomplete="new-password">
+                        <button mat-icon-button matSuffix (click)="toggleConfirmPasswordVisibility()" class="bg-gray-200 p-2 flex items-center">
+                            <mat-icon class="text-gray-600">{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
+                    </div>
                     <span *ngIf="registerForm.hasError('required', 'confirmPassword') && registerForm.controls['confirmPassword'].dirty" class="text-red-500">
                         *Confirm Password is required! 
                     </span>
