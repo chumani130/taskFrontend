@@ -45,6 +45,26 @@ import { MatTableModule } from '@angular/material/table';
     MatNativeDateModule,
     MatDialogModule,
     MatTableModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatChipsModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatTableModule
   ]
 })
 export class MaterialsModule { }
