@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { MaterialsModule } from './materials/materials.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,10 @@ import { MaterialsModule } from './materials/materials.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
-    MaterialsModule
+    MaterialsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
