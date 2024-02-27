@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
   loginForm !: FormGroup
+  hidePassword = true;
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
@@ -24,5 +25,8 @@ export class LoginComponent implements OnInit {
     }
     signInWithGoogle() {
       console.log("you have signed up with google")
+    }
+    togglePasswordVisibility(): void {
+      this.hidePassword = !this.hidePassword;
     }
 }
