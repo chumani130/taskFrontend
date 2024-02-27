@@ -1,6 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from '../validators/confirm-password-validator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,7 +12,10 @@ import { confirmPasswordValidator } from '../validators/confirm-password-validat
 export class SignupComponent implements OnInit{  
 
   // fb = inject(FormBuilder);
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    private authService: AuthService,
+    private router: Router) { }
   registerForm !: FormGroup
   hidePassword = true;
   hideConfirmPassword = true;
@@ -20,18 +26,29 @@ export class SignupComponent implements OnInit{
       userName: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
-      confirmPassword: ['', [Validators.required, this.passwordMatchValidator]],
+      confirmPassword: ['', [Validators.required, confirmPasswordValidator]],
       subscribe: [false] // unchecked by default
-    },
-    
-    {
-      validator: confirmPasswordValidator('password', 'confirmPassword')
+    })
     }
-    );
+    register(): void {
+      const password = this.registerForm.get('password')?.value;
+      const confirmPassword = this.registerForm.get('confirmPassword')?.value;
+      if (password !== confirmPassword) {
+        this.snackBar.open('Password do not match.', 'Close', {duration: 5000, panelClass: 'error-snackbar' });
+        return;
+      }
+      this.authService.register(this.registerForm.value).subscribe(
+        (response) =>{
+          this.snackBar.open('Sign Up successful!', 'Close', {duration: 5000 });
+          this.router.navigateByUrl("/login");
+        },
+        (error)=>{
+          console.error('Registration failed:', error); // Log the error to the console
+          this.snackBar.open('Sign Up failed. Please try again.', 'Close', { duration: 5000, panelClass: 'error-snackbar'});
+        }
+      )
     }
-    register() {
-      console.log(this.registerForm.value);
-    }
+  
     signUpWithGoogle() {
       console.log("you have signed up with google")
     }
@@ -41,15 +58,5 @@ export class SignupComponent implements OnInit{
     toggleConfirmPasswordVisibility(): void {
       this.hideConfirmPassword = !this.hideConfirmPassword;
     }
-    passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
-      const password = control.get('password');
-      const confirmPassword = control.get('confirmPassword');
-  
-      if (password && confirmPassword && password.value !== confirmPassword.value) {
-          return { 'confirmPasswordValidator': true };
-      }
-  
-      return null;
-  }
   
 }
