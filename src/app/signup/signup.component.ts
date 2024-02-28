@@ -48,7 +48,6 @@ export class SignupComponent implements OnInit{
         }
       )
     }
-  
     signUpWithGoogle() {
       console.log("you have signed up with google")
     }
