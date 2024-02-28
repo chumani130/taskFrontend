@@ -36,7 +36,8 @@ export class SignupComponent implements OnInit{
         this.snackBar.open('Password do not match.', 'Close', {duration: 5000, panelClass: 'error-snackbar' });
         return;
       }
-      this.authService.register(this.registerForm.value).subscribe(
+      const signupForm = this.registerForm.value;
+      this.authService.register(signupForm).subscribe(
         (response) =>{
           this.snackBar.open('Sign Up successful!', 'Close', {duration: 5000 });
           this.router.navigateByUrl("/login");
