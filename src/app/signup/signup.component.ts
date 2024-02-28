@@ -57,5 +57,4 @@ export class SignupComponent implements OnInit{
     toggleConfirmPasswordVisibility(): void {
       this.hideConfirmPassword = !this.hideConfirmPassword;
     }
-  
 }
