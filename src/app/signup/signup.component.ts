@@ -21,14 +21,14 @@ export class SignupComponent implements OnInit{
   hideConfirmPassword = true;
   
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
-    this.registerForm = this.fb.group({
-      userName: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
-      confirmPassword: ['', [Validators.required, confirmPasswordValidator]],
-      subscribe: [false] // unchecked by default
-    })
+      // throw new Error('Method not implemented.');
+      this.registerForm = this.fb.group({
+        userName: ['', Validators.required],
+        email: ['', Validators.compose([Validators.required, Validators.email])],
+        password: ['', Validators.required],
+        confirmPassword: ['', [Validators.required, confirmPasswordValidator]],
+        subscribe: [false] // unchecked by default
+      })
     }
     register(): void {
       const password = this.registerForm.get('password')?.value;
