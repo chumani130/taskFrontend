@@ -11,7 +11,6 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class SignupComponent implements OnInit{  
 
-  // fb = inject(FormBuilder);
   constructor(private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private authService: AuthService,
