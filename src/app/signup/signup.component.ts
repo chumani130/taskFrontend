@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit{
           this.router.navigateByUrl("/login");
         },
         (error)=>{
-          console.error('Registration failed:', error); // Log the error to the console
+          console.error(error.message); // Log the error to the console
           this.snackBar.open('Sign Up failed. Please try again.', 'Close', { duration: 5000, panelClass: 'error-snackbar'});
         }
       )
