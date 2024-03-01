@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     }    
     );
     }
-    login() {
+    onSubmit() {
       console.log(this.loginForm.value);
     }
     signInWithGoogle() {
