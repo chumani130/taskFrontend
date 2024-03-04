@@ -16,6 +16,7 @@ export class AuthService {
     return this.http.post(BASIC_URL+ "sign-up", signupRequest);
   }
   login(username: string, password: string): any {
+    console.log("Login function called", username, password);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const body = {username, password};
 
@@ -33,6 +34,6 @@ export class AuthService {
         return false;
 
       })
-    )
+    );
   }
 }
