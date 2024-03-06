@@ -12,6 +12,7 @@ import { ChatsComponent } from './chats/chats.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { SearchComponent } from './search/search.component';
+import { MaterialsModule } from '../materials/materials.module';
 
 
 @NgModule({
@@ -25,11 +26,12 @@ import { SearchComponent } from './search/search.component';
     ChatsComponent,
     SettingsComponent,
     NotificationsComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MaterialsModule
   ]
 })
 export class AdminModule { }
