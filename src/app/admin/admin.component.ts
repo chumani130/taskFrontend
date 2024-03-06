@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MaterialsModule } from '../materials/materials.module';
 
 @Component({
   selector: 'app-admin',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
+  isExpanded: boolean = false;
 
 }
