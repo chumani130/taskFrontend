@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent {
+  logout() {
+    // Example: Perform logout logic
+    console.log('Logging out...');
+  }
 
 }
