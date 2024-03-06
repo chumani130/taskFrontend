@@ -6,6 +6,12 @@ import { AdminComponent } from './admin.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { CustomersComponent } from './customers/customers.component';
+import { ChatsComponent } from './chats/chats.component';
+import { SettingsComponent } from './settings/settings.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -13,7 +19,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AdminComponent,
     TopBarComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    TasksComponent,
+    CustomersComponent,
+    ChatsComponent,
+    SettingsComponent,
+    NotificationsComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
