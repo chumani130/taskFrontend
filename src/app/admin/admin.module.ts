@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { CustomersComponent } from './customers/customers.component';
@@ -18,8 +16,6 @@ import { MaterialsModule } from '../materials/materials.module';
 @NgModule({
   declarations: [
     AdminComponent,
-    TopBarComponent,
-    SidebarComponent,
     DashboardComponent,
     TasksComponent,
     CustomersComponent,
