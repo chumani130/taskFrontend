@@ -11,6 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { SearchComponent } from './search/search.component';
 import { MaterialsModule } from '../materials/materials.module';
+import { AppModule } from '../app.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MaterialsModule } from '../materials/materials.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MaterialsModule
+    MaterialsModule,
+    AppModule
   ]
 })
 export class AdminModule { }
