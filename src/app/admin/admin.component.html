@@ -4,30 +4,31 @@
       <mat-nav-list>
 
         <mat-list-item>
-          <mat-icon matListIcon class="chevron-button sidenav-button" (click)="isExpanded =!isExpanded" [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+          <mat-icon matListIcon class="chevron-button sidenav-button" 
+          (click)="isExpanded =!isExpanded" [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
         </mat-list-item>
 
-        <mat-list-item [routerLink]="'dashboard'">
+        <mat-list-item [routerLink]="'/admin/dashboard'">
           <mat-icon matListIcon class="">home</mat-icon>
           <span *ngIf="isExpanded">Dashboard</span>
         </mat-list-item>
 
-        <mat-list-item [routerLink]="'Tasks'">
+        <mat-list-item [routerLink]="'/admin/Tasks'">
           <mat-icon matListIcon class="">list</mat-icon>
           <span *ngIf="isExpanded">Tasks</span>
         </mat-list-item>
 
-        <mat-list-item [routerLink]="'customers'">
+        <mat-list-item [routerLink]="'/admin/customers'">
           <mat-icon matListIcon class="">people</mat-icon>
           <span *ngIf="isExpanded">Customers</span>
         </mat-list-item>
 
-        <mat-list-item [routerLink]="'customers'">
+        <mat-list-item [routerLink]="'/admin/customers'">
           <mat-icon matListIcon class="">message</mat-icon>
           <span *ngIf="isExpanded">Chats</span>
         </mat-list-item>
 
-        <mat-list-item [routerLink]="'settings'">
+        <mat-list-item [routerLink]="'/admin/settings'">
           <mat-icon matListIcon class="">settings</mat-icon>
           <span *ngIf="isExpanded">Settings</span>
         </mat-list-item>
